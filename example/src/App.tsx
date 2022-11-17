@@ -1,13 +1,15 @@
-import * as React from 'react';
+import React from 'react';
 
-import { StyleSheet, View } from 'react-native';
-import { SliderSelectorView } from 'react-native-slider-selector';
+import { SafeAreaView, StyleSheet } from 'react-native';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import Slider, { Test } from 'react-native-slider-selector';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <SliderSelectorView color="#32a852" style={styles.box} />
-    </View>
+    <SafeAreaView style={styles.container}>
+      {/*<Slider />*/}
+      <Test />
+    </SafeAreaView>
   );
 }
 

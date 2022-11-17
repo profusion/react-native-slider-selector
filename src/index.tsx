@@ -1,26 +1,12 @@
-import {
-  requireNativeComponent,
-  UIManager,
-  Platform,
-  ViewStyle,
-} from 'react-native';
+import React from 'react';
+import SelectorComponent, { SelectorProps } from './Selector';
+import { Slider } from './Slider';
 
-const LINKING_ERROR =
-  `The package 'react-native-slider-selector' doesn't seem to be linked. Make sure: \n\n` +
-  Platform.select({ ios: "- You have run 'pod install'\n", default: '' }) +
-  '- You rebuilt the app after installing the package\n' +
-  '- You are not using Expo Go\n';
+export const Selector = ({
+  currentValue,
+}: Pick<SelectorProps, 'currentValue'>) => (
+  <SelectorComponent currentValue={currentValue} />
+);
 
-type SliderSelectorProps = {
-  color: string;
-  style: ViewStyle;
-};
-
-const ComponentName = 'SliderSelectorView';
-
-export const SliderSelectorView =
-  UIManager.getViewManagerConfig(ComponentName) != null
-    ? requireNativeComponent<SliderSelectorProps>(ComponentName)
-    : () => {
-        throw new Error(LINKING_ERROR);
-      };
+export { Test } from './Test';
+export default Slider;

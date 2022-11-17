@@ -1,6 +1,6 @@
 {
   "name": "react-native-slider-selector",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "test",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -34,7 +34,11 @@
     "release": "release-it",
     "example": "yarn --cwd example",
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build",
-    "bootstrap": "yarn example && yarn install && yarn example pods"
+    "bootstrap": "yarn example && yarn install && yarn example pods",
+    "pods": "pod-install --quiet",
+    "install-gems": "BUNDLE_FROZEN=true bundle install --quiet",
+    "update-gems": "gem update && rm -f Gemfile.lock && bundle install --quiet && yarn install-ios",
+    "install-ios": "cd ios && pod install"
   },
   "keywords": [
     "react-native",
@@ -133,11 +137,12 @@
     "lib/"
   ],
   "prettier": {
-    "quoteProps": "consistent",
-    "singleQuote": true,
+    "printWidth": 80,
+    "trailingComma": "all",
     "tabWidth": 2,
-    "trailingComma": "es5",
-    "useTabs": false
+    "semi": true,
+    "bracketSpacing": true,
+    "singleQuote": true
   },
   "react-native-builder-bob": {
     "source": "src",
@@ -152,5 +157,9 @@
         }
       ]
     ]
+  },
+  "dependencies": {
+    "react-native-gesture-handler": "^2.4.1",
+    "react-native-reanimated": "2.8.0"
   }
 }
